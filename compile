@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Variables:
+compiler=clang++
+FLAGS="-pedantic -Wall -Wextra -Wredundant-decls -Wundef -Werror -Wfatal-errors"
+INPUTS="main.cpp functions.cpp bigint/bigint.cpp"
+output=language
+
+# Halt on first error
+set -e
+
+# Clean up the current directory:
+rm -f $output
+
+# Compile:
+$compiler $FLAGS -std=c++11 -g $INPUTS -o $output
+
+# Done
